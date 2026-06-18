@@ -2,6 +2,8 @@
 body, p, li, dd, dt, td, th, blockquote {
   font-family: "Noto Serif", "Noto Serif CJK JP", "Noto Serif JP", serif !important;
   text-align: left !important;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 h1, h2, h3, h4, h5, h6, #toctitle, .sidebarblock > .content > .title {
   font-family: "Open Sans", "Noto Sans CJK JP", "Noto Sans JP", sans-serif !important;
@@ -9,8 +11,11 @@ h1, h2, h3, h4, h5, h6, #toctitle, .sidebarblock > .content > .title {
 code, pre, kbd, samp, .listingblock pre {
   font-family: "Droid Sans Mono", "DejaVu Sans Mono", "HackGen Console", monospace !important;
 }
+.imageblock {
+  text-align: center;
+}
 .imageblock img {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
 }
 </style>
