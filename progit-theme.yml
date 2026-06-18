@@ -1,0 +1,33 @@
+extends: default
+font:
+  catalog:
+    Noto Serif:
+      normal: GEM_FONTS_DIR/notoserif-regular-subset.ttf
+      bold: GEM_FONTS_DIR/notoserif-bold-subset.ttf
+      italic: GEM_FONTS_DIR/notoserif-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/notoserif-bold_italic-subset.ttf
+    M+ 1mn:
+      normal: GEM_FONTS_DIR/mplus1mn-regular-subset.ttf
+      bold: GEM_FONTS_DIR/mplus1mn-bold-subset.ttf
+      italic: GEM_FONTS_DIR/mplus1mn-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/mplus1mn-bold_italic-subset.ttf
+    IPAMincho:
+      normal: /usr/share/fonts/OTF/ipam.ttf
+      bold: /usr/share/fonts/OTF/ipam.ttf
+      italic: /usr/share/fonts/OTF/ipam.ttf
+      bold_italic: /usr/share/fonts/OTF/ipam.ttf
+    IPAGothic:
+      normal: /usr/share/fonts/OTF/ipag.ttf
+      bold: /usr/share/fonts/OTF/ipag.ttf
+      italic: /usr/share/fonts/OTF/ipag.ttf
+      bold_italic: /usr/share/fonts/OTF/ipag.ttf
+    HackGenConsole:
+      normal: /usr/share/fonts/TTF/HackGenConsole-Regular.ttf
+      bold: /usr/share/fonts/TTF/HackGenConsole-Bold.ttf
+      italic: /usr/share/fonts/TTF/HackGenConsole-Regular.ttf
+      bold_italic: /usr/share/fonts/TTF/HackGenConsole-Bold.ttf
+  fallbacks: [IPAMincho, IPAGothic]
+codespan:
+  font_family: HackGenConsole
+code:
+  font_family: HackGenConsole
