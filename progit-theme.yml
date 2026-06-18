@@ -29,6 +29,8 @@ font:
   fallbacks: [IPAMincho, IPAGothic]
 base:
   text_align: left
+image:
+  align: center
 codespan:
   font_family: HackGenConsole
 code:
