@@ -27,6 +27,8 @@ font:
       italic: /usr/share/fonts/TTF/HackGenConsole-Regular.ttf
       bold_italic: /usr/share/fonts/TTF/HackGenConsole-Bold.ttf
   fallbacks: [IPAMincho, IPAGothic]
+base:
+  text_align: left
 codespan:
   font_family: HackGenConsole
 code:
