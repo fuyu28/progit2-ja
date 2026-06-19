@@ -27,7 +27,7 @@ ARG HACKGEN_VERSION=v2.10.0
 RUN echo "Installing HackGen Console ${HACKGEN_VERSION}" \
  && mkdir -p /usr/share/fonts/TTF /tmp/hackgen \
  && curl -fsSL \
-     "https://github.com/yuru7/HackGen/releases/download/${HACKGEN_VERSION}/HackGenConsole_${HACKGEN_VERSION}.zip" \
+     "https://github.com/yuru7/HackGen/releases/download/${HACKGEN_VERSION}/HackGen_${HACKGEN_VERSION}.zip" \
      -o /tmp/hackgen.zip \
  && unzip -q /tmp/hackgen.zip -d /tmp/hackgen \
  && find /tmp/hackgen -name 'HackGenConsole-Regular.ttf' -exec cp {} /usr/share/fonts/TTF/ \; \
