@@ -5,6 +5,7 @@ LABEL org.opencontainers.image.description="Build environment for progit2-ja (Ja
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     git \
     make \
     fontconfig \
