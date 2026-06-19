@@ -9,12 +9,15 @@ HEAD      := $(shell git rev-parse --short HEAD)
 PARAMS    := --attribute revnumber='$(REVNUM)' --attribute revdate='$(DATE)'
 
 BUNDLE    := bundle exec
+DOCKER_IMAGE := progit2-builder
+DOCKER_RUN   := docker run --rm -v $(CURDIR):/build $(DOCKER_IMAGE)
 
 SOURCES   := progit.asc $(shell find book -name "*.asc")
 OUTPUTS   := progit.html progit.epub progit.fb2.zip progit.mobi progit.pdf progit-kf8.epub
 CONTRIB   := book/contributors.txt
 
-.PHONY: all html epub fb2 mobi pdf clean check
+.PHONY: all html epub fb2 mobi pdf clean check \
+        docker-build docker docker-html docker-epub docker-fb2 docker-mobi docker-pdf
 
 all: html epub fb2 mobi pdf
 
@@ -61,3 +64,13 @@ check: progit.html progit.epub
 
 clean:
 	$(RM) $(OUTPUTS) $(CONTRIB)
+
+docker-build:
+	docker build -t $(DOCKER_IMAGE) .
+
+docker:       docker-build; $(DOCKER_RUN)
+docker-html:  docker-build; $(DOCKER_RUN) html
+docker-epub:  docker-build; $(DOCKER_RUN) epub
+docker-fb2:   docker-build; $(DOCKER_RUN) fb2
+docker-mobi:  docker-build; $(DOCKER_RUN) mobi
+docker-pdf:   docker-build; $(DOCKER_RUN) pdf

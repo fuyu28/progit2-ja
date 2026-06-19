@@ -11,18 +11,19 @@ AI（Claude）を活用して全文を日本語に翻訳し、日本語組版の
 
 Ruby や日本語フォントのセットアップ不要でビルドできます。
 
+| コマンド | 出力ファイル |
+|---|---|
+| `make docker-pdf` | `progit.pdf` |
+| `make docker-html` | `progit.html` |
+| `make docker-epub` | `progit.epub` |
+| `make docker-fb2` | `progit.fb2.zip` |
+| `make docker-mobi` | `progit.mobi` |
+| `make docker` | 全形式 |
+
+初回はイメージのビルドが自動で行われます。イメージだけ先にビルドしたい場合:
+
 ```bash
-# イメージをビルド（初回のみ）
-docker build -t progit2-builder .
-
-# PDF をビルド
-docker run --rm -v $(pwd):/build progit2-builder pdf
-
-# HTML をビルド
-docker run --rm -v $(pwd):/build progit2-builder html
-
-# 全形式ビルド
-docker run --rm -v $(pwd):/build progit2-builder
+make docker-build
 ```
 
 出力ファイルはカレントディレクトリに生成されます。
