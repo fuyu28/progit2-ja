@@ -21,17 +21,12 @@ font:
       bold: /usr/share/fonts/OTF/ipag.ttf
       italic: /usr/share/fonts/OTF/ipag.ttf
       bold_italic: /usr/share/fonts/OTF/ipag.ttf
-    HackGenConsole:
-      normal: /usr/share/fonts/TTF/HackGenConsole-Regular.ttf
-      bold: /usr/share/fonts/TTF/HackGenConsole-Bold.ttf
-      italic: /usr/share/fonts/TTF/HackGenConsole-Regular.ttf
-      bold_italic: /usr/share/fonts/TTF/HackGenConsole-Bold.ttf
   fallbacks: [IPAMincho, IPAGothic]
 base:
   text_align: left
 image:
   align: center
 codespan:
-  font_family: HackGenConsole
+  font_family: M+ 1mn
 code:
-  font_family: HackGenConsole
+  font_family: M+ 1mn

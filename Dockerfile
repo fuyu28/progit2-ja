@@ -7,8 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     make \
-    curl \
-    unzip \
     fontconfig \
     fonts-ipafont \
   && rm -rf /var/lib/apt/lists/*
@@ -21,19 +19,6 @@ RUN mkdir -p /usr/share/fonts/OTF \
  && ln -sf "$(find /usr/share/fonts -name 'ipag.ttf' ! -path '*/OTF/*' | head -1)" \
            /usr/share/fonts/OTF/ipag.ttf
 
-# Install HackGen Console fonts from GitHub releases.
-# Override version with: docker build --build-arg HACKGEN_VERSION=vX.X.X .
-ARG HACKGEN_VERSION=v2.10.0
-RUN echo "Installing HackGen Console ${HACKGEN_VERSION}" \
- && mkdir -p /usr/share/fonts/TTF /tmp/hackgen \
- && curl -fsSL \
-     "https://github.com/yuru7/HackGen/releases/download/${HACKGEN_VERSION}/HackGen_${HACKGEN_VERSION}.zip" \
-     -o /tmp/hackgen.zip \
- && unzip -q /tmp/hackgen.zip -d /tmp/hackgen \
- && find /tmp/hackgen -name 'HackGenConsole-Regular.ttf' -exec cp {} /usr/share/fonts/TTF/ \; \
- && find /tmp/hackgen -name 'HackGenConsole-Bold.ttf' -exec cp {} /usr/share/fonts/TTF/ \; \
- && rm -rf /tmp/hackgen /tmp/hackgen.zip \
- && fc-cache -f
 
 WORKDIR /build
 

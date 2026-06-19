@@ -50,14 +50,12 @@ bundle install
 #### 環境要件
 
 - Ruby 4.0+
-- 日本語フォント（PDF 用）
-  - IPAMincho / IPAGothic（`/usr/share/fonts/OTF/`）
-  - HackGenConsole（`/usr/share/fonts/TTF/`）
+- 日本語フォント（PDF 用）: IPAMincho / IPAGothic（`/usr/share/fonts/OTF/`）
 
 Arch Linux の場合:
 
 ```bash
-sudo pacman -S otf-ipafont ttf-hackgen
+sudo pacman -S otf-ipafont
 ```
 
 ## 翻訳について
