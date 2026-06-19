@@ -7,13 +7,35 @@ AI（Claude）を活用して全文を日本語に翻訳し、日本語組版の
 
 ## ビルド
 
+### Docker を使う場合（推奨）
+
+Ruby や日本語フォントのセットアップ不要でビルドできます。
+
+```bash
+# イメージをビルド（初回のみ）
+docker build -t progit2-builder .
+
+# PDF をビルド
+docker run --rm -v $(pwd):/build progit2-builder pdf
+
+# HTML をビルド
+docker run --rm -v $(pwd):/build progit2-builder html
+
+# 全形式ビルド
+docker run --rm -v $(pwd):/build progit2-builder
+```
+
+出力ファイルはカレントディレクトリに生成されます。
+
+### ローカル環境でビルドする場合
+
 依存 gem のインストール:
 
 ```bash
 bundle install
 ```
 
-### 形式別ビルド
+#### 形式別ビルド
 
 | コマンド | 出力ファイル |
 |---|---|
@@ -24,11 +46,7 @@ bundle install
 | `make pdf` | `progit.pdf` |
 | `make` | 全形式 |
 
-```bash
-make pdf
-```
-
-### 環境要件
+#### 環境要件
 
 - Ruby 4.0+
 - 日本語フォント（PDF 用）
