@@ -22,15 +22,12 @@ RUN mkdir -p /usr/share/fonts/OTF \
            /usr/share/fonts/OTF/ipag.ttf
 
 # Install HackGen Console fonts from GitHub releases.
-# Pin with: docker build --build-arg HACKGEN_VERSION=vX.X.X .
-ARG HACKGEN_VERSION
-RUN HACKGEN_VER="${HACKGEN_VERSION:-$(curl -fsSL \
-      https://api.github.com/repos/yuru7/HackGen/releases/latest \
-      | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')}" \
- && echo "Installing HackGen Console ${HACKGEN_VER}" \
+# Override version with: docker build --build-arg HACKGEN_VERSION=vX.X.X .
+ARG HACKGEN_VERSION=v2.10.0
+RUN echo "Installing HackGen Console ${HACKGEN_VERSION}" \
  && mkdir -p /usr/share/fonts/TTF /tmp/hackgen \
  && curl -fsSL \
-     "https://github.com/yuru7/HackGen/releases/download/${HACKGEN_VER}/HackGenConsole_${HACKGEN_VER}.zip" \
+     "https://github.com/yuru7/HackGen/releases/download/${HACKGEN_VERSION}/HackGenConsole_${HACKGEN_VERSION}.zip" \
      -o /tmp/hackgen.zip \
  && unzip -q /tmp/hackgen.zip -d /tmp/hackgen \
  && find /tmp/hackgen -name 'HackGenConsole-Regular.ttf' -exec cp {} /usr/share/fonts/TTF/ \; \
