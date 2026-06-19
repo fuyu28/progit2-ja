@@ -5,7 +5,6 @@ else
   REVNUM  := $(shell echo "$(VERSION)" | awk -F. '{print $$1"."$$2"."$$3+1}')
 endif
 DATE      := $(shell date +%Y-%m-%d)
-HEAD      := $(shell git rev-parse --short HEAD)
 PARAMS    := --attribute revnumber='$(REVNUM)' --attribute revdate='$(DATE)'
 
 BUNDLE    := bundle exec
