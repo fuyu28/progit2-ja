@@ -8,9 +8,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     git \
     make \
+    bsdmainutils \
     fontconfig \
     fonts-ipafont \
   && rm -rf /var/lib/apt/lists/*
+
+# Allow git to operate on /build even when mounted from a different host user.
+RUN git config --global --add safe.directory /build
 
 # progit-theme.yml expects fonts at /usr/share/fonts/OTF/ (Arch Linux layout).
 # Debian installs IPA fonts elsewhere, so create symlinks.
